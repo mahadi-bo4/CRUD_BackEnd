@@ -1,13 +1,13 @@
-package com.example.amigocode01;
+package com.example.studentcrud;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class AmigoCode01Application {
+public class StudentCrudApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(AmigoCode01Application.class, args);
+		SpringApplication.run(StudentCrudApplication.class, args);
 	}
 
 }

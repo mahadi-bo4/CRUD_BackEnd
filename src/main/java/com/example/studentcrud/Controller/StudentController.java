@@ -1,10 +1,9 @@
-package com.example.amigocode01.Controller;
+package com.example.studentcrud.Controller;
 
-import com.example.amigocode01.DTO.StudentDTO;
-import com.example.amigocode01.Model.Student;
-import com.example.amigocode01.Service.StudentService;
+import com.example.studentcrud.DTO.StudentDTO;
+import com.example.studentcrud.Model.Student;
+import com.example.studentcrud.Service.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;

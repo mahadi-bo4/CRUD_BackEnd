@@ -1,12 +1,14 @@
-package com.example.amigocode01.Service;
+package com.example.studentcrud.Service;
 
-import com.example.amigocode01.DTO.StudentDTO;
-import com.example.amigocode01.Model.Student;
-import com.example.amigocode01.Repository.StudentRepo;
+import com.example.studentcrud.DTO.StudentDTO;
+import com.example.studentcrud.Model.Student;
+import com.example.studentcrud.Repository.StudentRepo;
+import com.example.studentcrud.exception.NotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class StudentService {
@@ -30,7 +32,13 @@ public class StudentService {
     }
 
     public Student findById(Integer id){
-        return studentRepo.findById(id).get();
+//        return studentRepo.findById(id).get();
+
+        Optional <Student> existById= studentRepo.findById(id);
+        if(existById.isPresent()){
+            return existById.get();
+        }
+        throw new NotFoundException("Student with id " + id + " not found");
     }
 
     public String deleteStudent(Integer id){
@@ -38,14 +46,16 @@ public class StudentService {
             studentRepo.deleteById(id);
             return "Student details deleted successfully";
         }
-        return "No student found";
+        throw new NotFoundException("Student with id " + id + " not found");
     }
 
     public String updateStudent(Integer id,
                                 StudentDTO studentDTO){
 
-        Student student = studentRepo.findById(id).get();
-        if(studentRepo.existsById(id)) {
+//        Student student = studentRepo.findById(id).get();
+        Optional <Student> studentExist = studentRepo.findById(id);
+        if(studentExist.isPresent()) {
+            Student student = studentExist.get();
             student.setName(studentDTO.getName());
             student.setEmail(studentDTO.getEmail());
             student.setRoll(studentDTO.getRoll());
@@ -54,6 +64,6 @@ public class StudentService {
             return "Student updated successfully";
         }
 
-        return "Student not found";
+        throw new NotFoundException("Student with id " + id + " not found");
     }
 }

@@ -1,4 +1,4 @@
-package com.example.amigocode01.Model;
+package com.example.studentcrud.Model;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;

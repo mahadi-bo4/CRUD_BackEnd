@@ -1,4 +1,4 @@
-package com.example.amigocode01.DTO;
+package com.example.studentcrud.DTO;
 
 
 import lombok.AllArgsConstructor;
