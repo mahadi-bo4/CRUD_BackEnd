@@ -3,20 +3,19 @@ package com.example.studentcrud.Controller;
 import com.example.studentcrud.DTO.StudentDTO;
 import com.example.studentcrud.Model.Student;
 import com.example.studentcrud.Service.StudentService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
+@RequiredArgsConstructor
 @RequestMapping("student")
 public class StudentController {
 
-//    @Autowired
-//    private StudentDTO studentDTO;
 
-    @Autowired
-    private StudentService studentService;
+    private final StudentService studentService;
 
     @PostMapping
     public String saveStudent(@RequestBody StudentDTO studentDTO){

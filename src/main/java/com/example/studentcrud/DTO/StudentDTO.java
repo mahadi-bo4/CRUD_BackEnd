@@ -4,9 +4,7 @@ package com.example.studentcrud.DTO;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import org.springframework.stereotype.Component;
 
-@Component
 @Getter
 @AllArgsConstructor
 @NoArgsConstructor

@@ -32,8 +32,6 @@ public class StudentService {
     }
 
     public Student findById(Integer id){
-//        return studentRepo.findById(id).get();
-
         Optional <Student> existById= studentRepo.findById(id);
         if(existById.isPresent()){
             return existById.get();
@@ -52,7 +50,6 @@ public class StudentService {
     public String updateStudent(Integer id,
                                 StudentDTO studentDTO){
 
-//        Student student = studentRepo.findById(id).get();
         Optional <Student> studentExist = studentRepo.findById(id);
         if(studentExist.isPresent()) {
             Student student = studentExist.get();
